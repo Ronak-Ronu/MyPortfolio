@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>it`s me RONAK</title>
+<style>
+    *{
+        background-color: rgb(120, 120, 158);
+        overflow: hidden;
+    }
+    model-viewer{
+        top: -10vh;
+        width: 2000px;
+        height: 1100px;
+        margin: 0 auto;
+    }
+    @media screen and (max-width:600px){
+        model-viewer{
+            top: -25vh;
+            left: -20vw;
+            width: 600px;
+            height: 1000px;
+            margin: 0 auto;
+    }
+    }
+</style>
+</head>
+<body>
+    <div class="my-model">
+        <model-viewer src="/scene1.glb" shadow-intensity="2" auto-rotate camera-controls touch-action="pan-y" ></model-viewer>
+    </div>
+</body>
+</html>
