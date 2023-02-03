@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about-me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Amatic SC', cursive;
+        }
+        ::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(227, 68, 68); 
+}
+
+        body{
+            overflow-x: hidden;
+        }
+        .canvas
+        {
+            width: 100vw;
+            height: 100vh;
+        }
+        .imronak{
+            position: fixed;
+            color: white;
+            font-size: 6rem;
+            z-index: 2;
+            left: 15%;
+            top: 30%;
+            transform: translate(-15%,-30%);
+        }
+        .scroll{
+            position: fixed;
+            color: white;
+            font-size: 3rem;
+            z-index: 2;
+        }
+        .detail{
+            position: fixed;
+            color: white;
+            font-size: 2rem;
+            z-index: 2;
+            left: 14%;
+            top: 50%;
+            transform: translate(-14%,-50%);
+        }
+        .quote{
+            position: fixed;
+            color: white;
+            font-size: 5.5rem;
+            z-index: 2;
+            left:20%;
+            top:70%;
+            transform: translate(-10%,-10%);
+        }.transfer a{
+            position: fixed;
+            color: white;
+            font-size: 5.5rem;
+            z-index: 2;
+            left:20%;
+            top:70%;
+            transform: translate(-10%,-10%);
+            text-decoration: none;
+        }
+        .image1 a img{
+            position: fixed;
+            width: 500px;
+            height: 300px;
+            z-index: 2;
+            left: 15rem;
+            top: 3rem;
+            border-radius: 40px;
+        }
+        .image1 a img:hover{
+            width: 50vw;
+            height: 50vh;
+            opacity: 0.5;
+            top: 10rem;
+            left: 10rem;
+            transition: 0.8s;
+        }
+        
+    </style>
+</head>
+<h2 class="imronak">i`m ronak</h2>
+<h2 class="scroll">scroll</h2>
+<p class="detail">NAME:RONAK SUTHAR<br>COLLEGE:KSRCT<br>STATE:TAMILNADU<br>HOBBY:CHESS</p>
+<div class="image1">
+
+    <a href="aboutme.html"><img src="./model_img_1.jpg" alt="CLICK..."></a>
+</div>
+<p class="quote">You   &ensp; are&ensp;    creator   &ensp; of   &ensp; your&ensp;    own&ensp;    world &ensp; :):    </p>
+
+<p class="transfer"><a href="model1.html">KNOW MORE ?</a></p>
+<canvas class="canvas"></canvas>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" integrity="sha512-A64Nik4Ql7/W/PJk2RNOmVyC/Chobn5TY08CiKEX50Sdw+33WTOpPJ/63bfWPl0hxiRv1trPs5prKO8CpA7VNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const canvas=document.querySelector(".canvas");
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+        
+        const cntxt=canvas.getContext('2d');
+        const framecount=124;
+        const new_fraem={frame:0};
+        const currentframe=(i)=> `./images/${i+1}.jpg`
+        const images=[];
+        for(let i=0;i<framecount;i++)
+        {
+            const img=new Image();
+            img.src=currentframe(i);
+            images.push(img);
+        }
+gsap.to(new_fraem,{
+    frame:framecount - 1 ,
+    snap: "frame",
+    ease: "none",
+    scrollTrigger:{
+        scrub:true,
+        pin : "canvas",
+        end : "2000%",
+    },
+    onUpdate:render,
+});
+
+gsap.fromTo('.scroll',
+    { opacity:1},
+    {
+    opacity:1,
+    scrollTrigger:{
+        scrub:true,
+        start:"0%",
+        end:"2%",
+    },
+    onComplete:()=>{
+        gsap.to('.scroll',{opacity:0});
+    }
+});
+gsap.fromTo('.quote',
+    { opacity:0},
+    {
+    opacity:1,
+    scrollTrigger:{
+        scrub:true,
+        start:"50%",
+        end:"70%",
+    },
+    onComplete:()=>{
+        gsap.to('.quote',{opacity:0});
+    }
+});
+gsap.fromTo('.imronak',
+    { opacity:0},
+    {
+    opacity:1,
+    scrollTrigger:{
+        scrub:true,
+        start:"20%",
+        end:"40%",
+    },
+    onComplete:()=>{
+        gsap.to('.imronak',{opacity:0});
+    }
+});
+gsap.fromTo('.transfer a',
+    { opacity:0},
+    {
+    opacity:1,
+    scrollTrigger:{
+        scrub:true,
+        start:"80%",
+        end:"100%",
+    },
+    onComplete:()=>{
+        gsap.to('.transfer a',{opacity:0});
+    }
+});
+gsap.fromTo('.image1 a img',
+    { opacity:0},
+    {
+    opacity:1,
+    scrollTrigger:{
+        scrub:true,
+        start:"90%",
+        end:"100%",
+    },
+    
+});
+gsap.fromTo('.detail',
+    { opacity:0},
+    {
+    opacity:1,
+    scrollTrigger:{
+        scrub:true,
+        start:"27%",
+        end:"43%",
+    },
+    onComplete:()=>{
+        gsap.to('.detail',{opacity:0});
+    }
+});
+        images[0].onload=render;
+        function render()
+        {
+            cntxt.clearRect(0,0,canvas.innerWidth,canvas.innerHeight);
+            cntxt.drawImage(images[new_fraem.frame],0,0);
+        }
+    </script>
+</body>
+</html>

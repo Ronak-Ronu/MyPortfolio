@@ -10,6 +10,7 @@
         background-color: rgb(120, 120, 158);
         overflow: hidden;
     }
+    
     .model model-viewer{
         top: 0vh;
     width: 1991px;
@@ -18,6 +19,7 @@
     left: 0vh;
     position: absolute;
     }
+
     @media screen and (max-width:600px){
        .model model-viewer{
         top: 0vh;
@@ -31,7 +33,7 @@
 </head>
 <body>
     <div class="model">
-        <model-viewer ar ar-modes="scene-viewer webxr" camera-orbit="calc(1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) " src="newmodel.glb" shadow-intensity="2"  camera-controls auto-rotate  ></model-viewer>
+        <model-viewer ar ar-modes="scene-viewer style="width: 1991px;height: 980px;background-color: rgb(0 0 0);"bxr" camera-orbit="calc(1.5rad + env(window-scroll-y) * 4rad) calc(0deg + env(window-scroll-y) * 180deg) " src="newmodel.glb" shadow-intensity="2"  camera-controls auto-rotate  ></model-viewer>
     </div>
 <script type="module"
   src="https://unpkg.com/@google/model-viewer@v0.7.2/dist/model-viewer.js">
