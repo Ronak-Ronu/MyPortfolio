@@ -133,7 +133,7 @@ function init() {
       'right.png'
   ]);
   var i=0;
-  document.getElementById("itsme").addEventListener("click",
+  document.querySelector("h1").addEventListener("click",
   function(){
     scene.background = new THREE.CubeTextureLoader()
   .setPath('cubemap/').load([
