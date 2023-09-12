@@ -85,16 +85,17 @@ nav ul a{
   text-decoration: none;
 }
 .content .profile{
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   margin-top: -10px;
   margin-right: 60px;
   box-shadow: 10px 15px 25px 0 rgba(255, 255, 255, 0.2);
 }
 .content .profile:hover {
   box-shadow: 10px 15px 25px 0 rgba(218, 68, 218, 0.2);
-  transition: 1s ease;
+  transition: .5s ease;
 }
+
 </style>
 	</head>
 	<body>
@@ -108,8 +109,7 @@ nav ul a{
     <div class="content">
       <a href="https://www.instagram.com/ronak._.2002/">
       <img src="./cubemap/ronak.jpg" alt="" class="profile" /></a>
-
-        <h1>Iam Ronak suthar <br><p>Student at KSRCT :)</p></h1>
+        <h3>Iam Ronak suthar <br><p>Student at KSRCT :)</p></h3>
     </div>
     <canvas class="three-js"></canvas>
     <script src="three.js"></script>
@@ -145,7 +145,6 @@ function init() {
       'mcright.png'
       ]);
   });
-
   const canvas=document.querySelector('.three-js')
     renderer=new THREE.WebGLRenderer({canvas});
     renderer.setSize(window.innerWidth,window.innerHeight);
@@ -163,7 +162,6 @@ function init() {
               camera.rotation.x+=0.001;
               camera.rotation.z+=0.002;
               requestAnimationFrame(animate);
-
               renderer.render(scene,camera);            
             }
             init();

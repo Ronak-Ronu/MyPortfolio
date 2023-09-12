@@ -19,9 +19,8 @@
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(227, 68, 68); 
+  background: rgb(125, 45, 216); 
 }
-
         body{
             overflow-x: hidden;
         }
@@ -48,7 +47,7 @@
         .detail{
             position: fixed;
             color: white;
-            font-size: 2rem;
+            font-size: 1.5rem;
             z-index: 2;
             left: 14%;
             top: 50%;
@@ -56,63 +55,35 @@
         }
         .quote{
             position: fixed;
-            color: white;
+            color: black;
             font-size: 5.5rem;
-            z-index: 2;
+            z-index: 9;
             left:20%;
             top:70%;
+            font-weight: bolder;
             transform: translate(-10%,-10%);
-        }.transfer a{
-            position: fixed;
-            color: white;
-            font-size: 5.5rem;
-            z-index: 2;
-            left:20%;
-            top:70%;
-            transform: translate(-10%,-10%);
-            text-decoration: none;
         }
-        .image1 a img{
-            position: fixed;
-            width: 500px;
-            height: 300px;
-            z-index: 2;
-            left: 15rem;
-            top: 3rem;
-            border-radius: 40px;
-        }
-        .image1 a img:hover{
-            width: 50vw;
-            height: 50vh;
-            opacity: 0.5;
-            top: 10rem;
-            left: 10rem;
-            transition: 0.8s;
-        }
-        
+      
+      
     </style>
 </head>
-<h2 class="imronak">i`m ronak</h2>
-<h2 class="scroll">scroll</h2>
-<p class="detail">NAME:RONAK SUTHAR<br>COLLEGE:KSRCT<br>STATE:TAMILNADU<br>HOBBY:CHESS</p>
-<div class="image1">
 
-    <a href="aboutme.html"><img src="./model_img_1.jpg" alt="CLICK..."></a>
-</div>
+<body>
+    <h2 class="imronak">i`m ronak</h2>
+<h2 class="scroll">scroll</h2>
+<p class="detail">NAME:RONAK SUTHAR<br>COLLEGE:KSRCT<br>STATE:TAMILNADU<br>HOBBY:Defined</p>
+
 <p class="quote">You   &ensp; are&ensp;    creator   &ensp; of   &ensp; your&ensp;    own&ensp;    world &ensp; :):    </p>
 
-<p class="transfer"><a href="model1.html">KNOW MORE ?</a></p>
 <canvas class="canvas"></canvas>
-<body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" integrity="sha512-A64Nik4Ql7/W/PJk2RNOmVyC/Chobn5TY08CiKEX50Sdw+33WTOpPJ/63bfWPl0hxiRv1trPs5prKO8CpA7VNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const canvas=document.querySelector(".canvas");
         canvas.width=window.innerWidth;
         canvas.height=window.innerHeight;
-        
         const cntxt=canvas.getContext('2d');
-        const framecount=124;
+        const framecount=250;
         const new_fraem={frame:0};
         const currentframe=(i)=> `./images/${i+1}.jpg`
         const images=[];
@@ -125,11 +96,11 @@
 gsap.to(new_fraem,{
     frame:framecount - 1 ,
     snap: "frame",
-    ease: "none",
+    ease: "false",
     scrollTrigger:{
         scrub:true,
         pin : "canvas",
-        end : "2000%",
+        end : "1500%",
     },
     onUpdate:render,
 });
@@ -153,8 +124,8 @@ gsap.fromTo('.quote',
     opacity:1,
     scrollTrigger:{
         scrub:true,
-        start:"50%",
-        end:"70%",
+        start:"70%",
+        end:"90%",
     },
     onComplete:()=>{
         gsap.to('.quote',{opacity:0});
@@ -167,36 +138,13 @@ gsap.fromTo('.imronak',
     scrollTrigger:{
         scrub:true,
         start:"20%",
-        end:"40%",
+        end:"60%",
     },
     onComplete:()=>{
         gsap.to('.imronak',{opacity:0});
     }
 });
-gsap.fromTo('.transfer a',
-    { opacity:0},
-    {
-    opacity:1,
-    scrollTrigger:{
-        scrub:true,
-        start:"80%",
-        end:"100%",
-    },
-    onComplete:()=>{
-        gsap.to('.transfer a',{opacity:0});
-    }
-});
-gsap.fromTo('.image1 a img',
-    { opacity:0},
-    {
-    opacity:1,
-    scrollTrigger:{
-        scrub:true,
-        start:"90%",
-        end:"100%",
-    },
-    
-});
+
 gsap.fromTo('.detail',
     { opacity:0},
     {
